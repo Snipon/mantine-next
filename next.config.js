@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    domains: ["loremflickr.com", "cloudflare-ipfs.com"],
+  },
+  reactStrictMode: true,
+  output: "standalone",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
