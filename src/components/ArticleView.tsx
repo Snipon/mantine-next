@@ -10,6 +10,7 @@ import {
   Title
 } from "@mantine/core";
 import Image from "next/image";
+import AddCartButton from "@/components/AddCartButton";
 
 export default function ArticleView({title, material, price, brand, description, image, id}: ArticleTypes) {
   return (
@@ -27,7 +28,7 @@ export default function ArticleView({title, material, price, brand, description,
         <Divider my="md" />
         <Text size="xl">${price}</Text>
         <Space h="md" />
-        <Button>Add to cart</Button>
+        <AddCartButton id={id} title={title}/>
       </GridCol>
     </Grid>
   );

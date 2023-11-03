@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import {ArticleTypes} from "@/types/Article.types";
+import AddCartButton from "@/components/AddCartButton";
 
 interface ArticleListProps {
   data: ArticleTypes[];
@@ -19,16 +20,17 @@ interface ArticleListProps {
 
 function ArticleTeaser ({title, brand, price, image, id}: ArticleTypes) {
   return (
-    <Link style={{textDecoration: "none", color: "inherit"}} href={'/item/' + id}>
-      <Flex direction="column"  bg="gray.8" style={{width: "100%", height: "100%"}}>
+    <Flex direction="column"  bg="gray.8" style={{width: "100%", height: "100%"}}>
+      <Link style={{textDecoration: "none", color: "inherit"}} href={'/item/' + id}>
         <Image src={`${image}?random=${id}`} alt={title} width={400} height={225}  style={{maxWidth: "100%", objectFit: "contain"}}/>
         <Box p="md">
           < Title order={1} size="h3" >{title}</Title>
           <Text size="xs" mb="md" c="dimmed">{brand}</Text>
           <Text size="lg">${price}</Text>
         </Box>
-      </Flex>
-    </Link>
+      </Link>
+      <AddCartButton id={id} title={title} minimal />
+    </Flex>
   );
 }
 
